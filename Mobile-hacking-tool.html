@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Prank</title>
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .header {
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            text-shadow: 0 0 20px lime;
+            margin-top: 20px;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .terminal {
+            border: 2px solid lime;
+            padding: 20px;
+            height: 300px;
+            overflow-y: scroll;
+            background-color: black;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        .share-button {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            padding: 10px 30px;
+            font-size: 16px;
+            background-color: lime;
+            border: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        .share-button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">HACKING</div>
+    <div class="container">
+        <h1>HACKING IN PROGRESS...</h1>
+        <div class="terminal">
+            <pre id="output"></pre>
+        </div>
+        <button id="stopButton">STOP HACKING</button>
+        <button class="share-button" id="shareButton">Share with Friend</button>
+    </div>
+    <script>
+        const output = document.getElementById('output');
+        const stopButton = document.getElementById('stopButton');
+        const shareButton = document.getElementById('shareButton');
+
+        const messages = [
+            "Connecting to target...",
+            "Accessing files...",
+            "Bypassing firewall...",
+            "Injecting payload...",
+            "Gathering data...",
+            "HACKING COMPLETE!",
+        ];
+
+        let i = 0;
+
+        function displayMessage() {
+            if (i < messages.length) {
+                output.innerHTML += messages[i] + '\n';
+                i++;
+                setTimeout(displayMessage, 1500);
+            }
+        }
+
+        displayMessage();
+
+        stopButton.addEventListener('click', () => {
+            alert("This was just a prank! 😊");
+            stopButton.disabled = true;
+            shareButton.style.display = 'inline'; // Show share button
+        });
+
+        shareButton.addEventListener('click', () => {
+            const url = window.location.href;
+            const message = "I just pranked you! Check this out: ";
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message + url)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
